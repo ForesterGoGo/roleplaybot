@@ -25,7 +25,7 @@ router.post('/', function(req, res, next) {
                 if (req.body.message.search(/замена/iu) === 0)
                 {
                     let group = req.body.message.split(' ')[1];
-                    libraries.parser.getHTML('http://www.chtotib.ru/studentu/zamena')
+                    libraries.parser.getHTML('www.chtotib.ru/studentu/zamena')
                         .then(res => {
                             let $ = libraries.cheerio.load(res.result);
                             try {
