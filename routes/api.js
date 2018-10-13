@@ -69,8 +69,9 @@ router.post('/', function(req, res, next) {
                                         else rowSTR += prevGroup+";";
                                     }
                                 }
-                                console.log("group: "+group);
-                                if (rowSTR.indexOf(group) > -1)
+                                let groupRow = rowSTR.split(';')[0].toLowerCase();
+
+                                if (group.toLowerCase() === groupRow)
                                 {
                                     if (table === 0)
                                         if (message.indexOf(replacementDateFirst) === -1) message = replacementDateFirst + "\n" + message;
