@@ -70,8 +70,8 @@ router.post('/', function(req, res, next) {
                                     }
                                 }
                                 let groupRow = rowSTR.split(';')[0].toLowerCase();
-                                console.log(groupRow);
-                                console.log(group);
+                                console.log(groupRow.trim());
+                                console.log(group.toLowerCase().trim());
                                 if (group.toLowerCase().trim() === groupRow.trim())
                                 {
                                     if (table === 0)
