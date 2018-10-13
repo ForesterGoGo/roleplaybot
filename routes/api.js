@@ -82,6 +82,7 @@ router.post('/', function(req, res, next) {
                             }
                         }
                         console.log(message);
+                        message = message.replace(';', ' ');
                         trueVK.VK.request('messages.send', {'user_id' : userId, 'message':message}, function(_o) {
                             console.log(_o);
 
