@@ -70,7 +70,6 @@ router.post('/', function(req, res, next) {
                                         else rowSTR += prevGroup+";";
                                     }
                                 }
-                                console.log(rowSTR);
                                 if (rowSTR.indexOf(group) > -1)
                                 {
                                     if (table === 1)
@@ -82,6 +81,10 @@ router.post('/', function(req, res, next) {
                                 }
                             }
                         }
+                        trueVK.VK.request('messages.send', {'user_id' : userId, 'message':message}, function(_o) {
+                            console.log(_o);
+
+                        });
 
 
                     }catch (e) {
