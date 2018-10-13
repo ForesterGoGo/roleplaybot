@@ -40,7 +40,7 @@ router.post('/', function(req, res, next) {
                                         if (children[child].data.search(/З А М Е Н А/gmui) === 0)
                                         {
                                             if (replacementDateFirst === "") replacementDateFirst = children[child].data;
-                                            else replacementDateSecond = children[child].data + " s" + children[child].parent.parent.next.next.children[1].children[0].data;
+                                            else replacementDateSecond = children[child].data + " " + children[child].parent.parent.next.next.children[1].children[0].data;
                                             break;
                                         }
                                     }
@@ -69,12 +69,13 @@ router.post('/', function(req, res, next) {
                                         else rowSTR += prevGroup+";";
                                     }
                                 }
+                                console.log("group: "+group);
                                 if (rowSTR.indexOf(group) > -1)
                                 {
-                                    if (table === 1)
+                                    if (table === 0)
                                         if (message.indexOf(replacementDateFirst) === -1) message = replacementDateFirst + "\n" + message;
                                         else message += rowSTR + "\n";
-                                    if (table === 2)
+                                    if (table === 1)
                                         if (message.indexOf(replacementDateSecond) === -1) message = replacementDateSecond + "\n" + message;
                                         else message += rowSTR + "\n";
                                 }
