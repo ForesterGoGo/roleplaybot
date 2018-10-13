@@ -85,9 +85,9 @@ router.post('/', function(req, res, next) {
                             }
                         }
                         console.log(message);
-                        message = message.replace(';', ' ');
+                        message = message.replace('/;/gi', ' ');
                         if (message.length === 0)
-                            trueVK.VK.request('messages.send', {'user_id' : userId, 'message':"Не найждено такой группы, либо для этой группы нет замен"}, function(_o) {
+                            trueVK.VK.request('messages.send', {'user_id' : userId, 'message':"Не найдено такой группы, либо для этой группы нет замен"}, function(_o) {
                                 console.log(_o);
                             });
                         else
@@ -97,10 +97,18 @@ router.post('/', function(req, res, next) {
 
 
                     }catch (e) {
-                        console.log(e)
+                        console.log(e);
+                        trueVK.VK.request('messages.send', {'user_id' : userId, 'message':"Произошла ошибка, попробуйте еще раз"}, function(_o) {
+                            console.log(_o);
+                        });
                     }
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err);
+                    trueVK.VK.request('messages.send', {'user_id' : userId, 'message':"Произошла ошибка, попробуйте еще раз"}, function(_o) {
+                        console.log(_o);
+                    });
+                });
 
             }
             else
