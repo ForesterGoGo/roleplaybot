@@ -3,7 +3,7 @@ var express = require('express');
 var settings = require('../module/settings');
 var trueVK = require('../module/VK');
 var VK = require('vksdk');
-const libraries = require('./module/libraries');
+const libraries = require('../module/libraries');
 
 var router = express.Router();
 
