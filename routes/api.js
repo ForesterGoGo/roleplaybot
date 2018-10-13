@@ -21,7 +21,7 @@ router.post('/', function(req, res, next) {
             let message = "";
             if (req.body.object.body.search(/замена/iu) === 0)
             {
-            let group = req.body.object.body.split(' ')[1];
+            let group = req.body.object.body.split(' ')[1]+" "+req.body.object.body.split(' ')[2] ;
             libraries.parser.getHTML('www.chtotib.ru/studentu/zamena')
                 .then(res => {
                     let $ = libraries.cheerio.load(res.result);
@@ -85,10 +85,14 @@ router.post('/', function(req, res, next) {
                         }
                         console.log(message);
                         message = message.replace(';', ' ');
-                        trueVK.VK.request('messages.send', {'user_id' : userId, 'message':message}, function(_o) {
-                            console.log(_o);
-
-                        });
+                        if (message.length === 0)
+                            trueVK.VK.request('messages.send', {'user_id' : userId, 'message':"Не найждено такой группы, либо для этой группы нет замен"}, function(_o) {
+                                console.log(_o);
+                            });
+                        else
+                            trueVK.VK.request('messages.send', {'user_id' : userId, 'message':message}, function(_o) {
+                                console.log(_o);
+                            });
 
 
                     }catch (e) {
