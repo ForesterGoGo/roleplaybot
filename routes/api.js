@@ -74,12 +74,13 @@ router.post('/', function(req, res, next) {
                                 console.log(group.toLowerCase().trim());
                                 if (group.toLowerCase().trim() === groupRow.trim())
                                 {
+                                    message += rowSTR + "\n";
                                     if (table === 0)
                                         if (message.indexOf(replacementDateFirst) === -1) message = replacementDateFirst + "\n" + message;
-                                        else message += rowSTR + "\n";
+
                                     if (table === 1)
                                         if (message.indexOf(replacementDateSecond) === -1) message = replacementDateSecond + "\n" + message;
-                                        else message += rowSTR + "\n";
+
                                 }
                             }
                         }
