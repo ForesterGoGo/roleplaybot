@@ -70,8 +70,9 @@ router.post('/', function(req, res, next) {
                                     }
                                 }
                                 let groupRow = rowSTR.split(';')[0].toLowerCase();
-
-                                if (group.toLowerCase() === groupRow)
+                                console.log(groupRow);
+                                console.log(group);
+                                if (group.toLowerCase().trim() === groupRow.trim())
                                 {
                                     if (table === 0)
                                         if (message.indexOf(replacementDateFirst) === -1) message = replacementDateFirst + "\n" + message;
