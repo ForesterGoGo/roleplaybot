@@ -22,9 +22,9 @@ router.post('/', function(req, res, next) {
             trueVK.VK.request('messages.send', {'user_id' : userId, 'message':'Прости, но в данный момент я не могу тебе помочь :(\n\rБот будет переписываться с нуля.\n\rЕсли ты знаешь Node.js и C# и хочешь помочь то напиши [id255983286|мне]'}, function(_o) {
                 console.log(_o);
                 let message = "";
-                if (req.body.message.search(/замена/iu) === 0)
+                if (req.body.object.body.search(/замена/iu) === 0)
                 {
-                    let group = req.body.message.split(' ')[1];
+                    let group = req.body.object.body.split(' ')[1];
                     libraries.parser.getHTML('www.chtotib.ru/studentu/zamena')
                         .then(res => {
                             let $ = libraries.cheerio.load(res.result);
