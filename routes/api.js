@@ -17,7 +17,6 @@ router.post('/', function(req, res, next) {
                 res.send("d01e4ee6");
             break;//255983286
         case 'message_new':
-            console.log(req.body.message);
             var userId = req.body.object.user_id;
             let message = "";
             if (req.body.object.body.search(/замена/iu) === 0)
@@ -81,6 +80,7 @@ router.post('/', function(req, res, next) {
                                 }
                             }
                         }
+                        console.log(message);
                         trueVK.VK.request('messages.send', {'user_id' : userId, 'message':message}, function(_o) {
                             console.log(_o);
 
