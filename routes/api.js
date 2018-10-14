@@ -85,7 +85,7 @@ router.post('/', function(req, res, next) {
                             }
                         }
                         console.log(message);
-                        message = message.replace('/;/gi', ' ');
+                        message = message.replace(/;/guim, ' ');
                         if (message.length === 0)
                             trueVK.VK.request('messages.send', {'user_id' : userId, 'message':"Не найдено такой группы, либо для этой группы нет замен"}, function(_o) {
                                 console.log(_o);
