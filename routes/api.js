@@ -9,11 +9,11 @@ var router = express.Router();
 
 router.post('/', function(req, res, next) {
     console.log(settings.GROUP_TOKEN);
-    console.log(req.body);
+    console.log("REG.BODY: " + req.body + " END BODY");
     switch (req.body.type)
     {
         case 'confirmation':
-            //if (req.body.group_id === 144267450)
+            if (req.body.group_id === 130735027)
                 res.send("63f7e5fb");
             break;//255983286
         case 'message_new':
