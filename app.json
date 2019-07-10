@@ -1,0 +1,19 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/ForesterGoGo/replacementbot"
+    }
+  ],
+  "description": "this bot for playing in vk messages role play ",
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "vkrpbot",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
