@@ -13,8 +13,8 @@ router.post('/', function(req, res, next) {
     switch (req.body.type)
     {
         case 'confirmation':
-            if (req.body.group_id === 144267450)
-                res.send("d01e4ee6");
+            //if (req.body.group_id === 144267450)
+                res.send("63f7e5fb");
             break;//255983286
         case 'message_new':
             var userId = req.body.object.user_id;
